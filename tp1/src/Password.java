@@ -38,10 +38,17 @@ public class Password {
      * @param targetHash the target hash to match
      * @return the 6-digit number that matches, or null if no match is found
      */
+
     public static String bruteForce6Digit(String targetHash) {
+        for (int i = 0; i <= 999999; i++) {
 
-        // Code here
+            String number = String.format("%06d", i);
+            String hashedNumber = hashPassword(number);
 
+            if (hashedNumber.equals(targetHash)) {
+                return number;
+            }
+        }
         return null;
     }
 
@@ -60,8 +67,6 @@ public class Password {
      * @return true if the password is strong, false otherwise
      */
     public static boolean isStrongPassword(String password) {
-
-        // Code here
 
         return false;
     }
